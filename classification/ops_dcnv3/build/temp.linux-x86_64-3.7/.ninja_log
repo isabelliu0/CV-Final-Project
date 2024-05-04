@@ -1,0 +1,4 @@
+# ninja log v5
+1	104722	1714782244444904761	/home/yl3030/COS429_A3/InternImage/classification/ops_dcnv3/build/temp.linux-x86_64-3.7/home/yl3030/COS429_A3/InternImage/classification/ops_dcnv3/src/cpu/dcnv3_cpu.o	d6171138123f3352
+5	122937	1714782262636123973	/home/yl3030/COS429_A3/InternImage/classification/ops_dcnv3/build/temp.linux-x86_64-3.7/home/yl3030/COS429_A3/InternImage/classification/ops_dcnv3/src/vision.o	fc24cab88fd2397d
+3	145994	1714782285718402124	/home/yl3030/COS429_A3/InternImage/classification/ops_dcnv3/build/temp.linux-x86_64-3.7/home/yl3030/COS429_A3/InternImage/classification/ops_dcnv3/src/cuda/dcnv3_cuda.o	ec276f456c3d8fed
