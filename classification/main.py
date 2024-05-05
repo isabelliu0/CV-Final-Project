@@ -33,6 +33,9 @@ from utils import (load_checkpoint, load_pretrained, save_checkpoint,
 from contextlib import suppress
 from ddp_hooks import fp16_compress_hook
 
+##
+from torch.distributed.elastic.multiprocessing.errors import record
+
 try:
     from apex import amp
     has_apex = True
@@ -163,7 +166,7 @@ def throughput(data_loader, model, logger):
         )
         return
 
-
+@record
 def main(config):
     # prepare data loaders
     dataset_train, dataset_val, dataset_test, data_loader_train, \
@@ -573,6 +576,15 @@ def validate(config, data_loader, model, epoch=None):
             f' * Acc@1 {acc1_meter.avg:.3f} Acc@5 {acc5_meter.avg:.3f}')
 
     return acc1_meter.avg, acc5_meter.avg, loss_meter.avg
+
+
+
+# # Check if 'LOCAL_RANK' is in the environment variables
+# if 'LOCAL_RANK' in os.environ:
+#     local_rank = int(os.environ['LOCAL_RANK'])
+# else:
+#     local_rank = 0  # Default value if 'LOCAL_RANK' is not set
+# os.environ['OMP_NUM_THREADS'] = '4'
 
 
 if __name__ == '__main__':
